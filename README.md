@@ -27,54 +27,28 @@ To compute the "Sociality Score," the distribution of public services in the cit
 
 ## Execution
 
-## First run for Budapest
 
-1. Open file `public-transport-city.py` and install the libraries that are imported at the beginning (use python3!)
-     ATTENTION: You need to use specific versions of the following libraries:
+1. Install the packages below with the specific versions:
 
-		a.	pymongo   V 3.12.1
-
-		b.	pandas    V 1.5.3
-
-		c.	folium    V 0.14.0 
-
-		d.	numpy     V 1.24.3 
-
-		e.	requests  V 2.29.0
-
-		f.	numba     V 0.57.0
-
-		h.	geopy     V 2.4.1
-
-		i.	shapely   V 1.8.0
-
-		j.	datetime  V 5.4
+		geojson == 3.1.0
+		pymongo == 4.7.2
+		pandas == 2.1.4
+		folium == 0.16.0
+		numpy == 1.26.4
+		numba == 0.59.0
+		geopy == 2.4.1
+		shapely == 2.0.4
+		geopandas == 0.14.4
 
 2. Adjust the date indicated in the line `day = ...` so that it corresponds to a date that is contained in the GTFS file.
 
 3. Ensure that the reference system of the population file is in `EPSG:4326`. If your population files are in another reference system, you should first convert them, using some external tools (e.g., qGIS).
 
-4. To compute the accessibility scores, run `python3 public-transport-city.py`. Inside that script there is a variable `first_run`. By default it is True, which implies the mongo db is modified (adding links, connections, nodes, etc.). However, if you have already filled the databse, e.g., you are running the script for a second time, you do not need to fill the database again: in this case, set ``first_run=False` before running the script.
+4. Run the cells in the notebook `step_1_Estimation of travel time and wait time.ipynb` to make estimations at unsampled areas in the data and get new gtfs files with drt integrated.
+5. Run the cells in the notebook `step_2_Compute the accessibilities.ipynb` to compute and visualize the accessibilities.
 
-5. Results are written in the mongo-db, in the table `points`, where fields concerning sociality and velocity score are added
-
-6. Use `public-transport-city.ipnb` to visualize the accessibility map
     
-## Compute travel time distances and all the accessbility quantities
-1. run ```jupyter-notebook``` and open the public-transport-analysis notebook.
-1. Set the variable listed at the start of the notebook:
-	1. ```city = 'Budapest' # name of the city```
-	2. ```urlMongoDb = "mongodb://localhost:27017/"; # url of the mongodb database```
-	3. ```directoryGTFS = './gtfs/'+ city+ '/' # directory of the gtfs files.```
-	4. ```day = "20170607" #hhhhmmdd [date validity of gtfs files]```
-	5. ```dayName = "wednesday" #name of the corresponding day```
-	6. ```urlServerOsrm = 'http://localhost:5000/'; #url of the osrm server of the city```
-    \[\Optional -- population collection]
-    7. ```urlMongoDbPop = "mongodb://localhost:27017/"; # url of the mongodb database of population data```
-    8. ```popDbName = "" #name of the population database```
-    9. ```popCollectionName = ""#name of the population collection```
-    10. ```popField = ""#the field in the properties field in the elements containing the value of the population```
-1. run the cells in the notebook.
+
 
 
 
