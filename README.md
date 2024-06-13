@@ -1,7 +1,4 @@
-[![DOI](https://zenodo.org/badge/104480172.svg)](https://zenodo.org/badge/latestdoi/104480172)
-# public-transport-analysis
-Urban Public transport analysis (POLITO-TSP).
-This repository contains a jupyter notebook and all the related libraries to perform some of the analysis shown  in the <a href="http://citychrone.org" target="_blank">CityChrone platform</a> and compute the data nedeed to add new city in the CityChrone platform.
+
 
 
 ## Prerequisites
@@ -14,7 +11,7 @@ This repository contains a jupyter notebook and all the related libraries to per
 
 ## Installation
 1. Clone this repository.
-2. Go to `public-transport-analysis/osrm` and run the commands annotated in `Docker-instructions.txt` 
+2. Run the commands annotated in `Docker-instructions.txt` 
 
 You will see `running and waiting for requests` message, which means that OSRM server is ready
 
