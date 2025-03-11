@@ -16,7 +16,9 @@ You will see `running and waiting for requests` message, which means that OSRM s
 
 3. Install Mongo DB `sudo apt-get install mongodb`
 4. Install `pip install IPython`
+#DATA
 
+get osm from [geofabrik](https://download.geofabrik.de/)
 
 ### Optional
 To compute the "Sociality Score," the distribution of public services in the city is needed. These public services include bus stops, colleges, kindergartens, libraries, schools, research institutes, car-sharing points, clinics, doctors, dentists, pharmacies, veterinary services, social facilities, cinemas, community centres, social centres, theatres, market places, stop positions, platforms, stations, stop areas, and stop area groups. This data can be scraped from OpenStreetMap using the Python package OSMnx.
