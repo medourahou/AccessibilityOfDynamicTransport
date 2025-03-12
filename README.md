@@ -3,11 +3,9 @@
 ## Prerequisites
 1. [python 3.x](https://www.python.org/download/releases/3.0/) - core programming language for running CityChrone scripts.
 2. [jupyter Notebook](http://jupyter.org/) -  interacting with the CityChrone analysis notebooks.
-3. [MongoDB](https://www.mongodb.com/download-center#community) with the privileges to create and modified a database.
-   CityChrone's backend relies on MongoDB for data storage and management. Ensure to dowload also MongoDB Compass - a GUI for MongoDB (to visually explore your data, build queries, and optimize databases).
-5. Docker
-6. Install all the Python libraries listed in the requirements.txt file.
-
+3. [MongoDB](https://www.mongodb.com/download-center#community) with the privileges to create and modified a database. CityChrone's backend relies on MongoDB for data storage and management. Ensure to dowload also MongoDB Compass - a GUI for MongoDB (to visually explore your data, build queries, and optimize databases).
+4. [Docker](https://docs.docker.com/get-started/get-docker/) - to run applications inside containers. Make sure your system supports and has enabled hardware virtualization (usually found in BIOS/UEFI settings). WSL 2 Backend (Recommended): Windows Subsystem for Linux 2 should be enabled for better performance.
+5. Install all the Python libraries listed below (see "Execution" section, Par. 1).
 
 ## Installation
 1. Clone this repository.
