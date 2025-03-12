@@ -23,13 +23,17 @@ Get OSM data for specific regions from [geofabrik](https://download.geofabrik.de
 
 The .osm.pbf (Protocolbuffer Binary Format) is recommended as it is compact and efficient.
 
-Make sure that you have the 
-
-### Optional
-To compute the "Accessibility" Score the distribution of public services in the city is needed. These public services include bus stops, colleges, kindergartens, libraries, schools, research institutes, car-sharing points, clinics, doctors, dentists, pharmacies, veterinary services, social facilities, cinemas, community centres, social centres, theatres, market places, stop positions, platforms, stations, stop areas, and stop area groups. This data can be scraped from OpenStreetMap using the Python package OSMnx.
+To compute the "Accessibility Score" the distribution of public services in the city is needed. These public services include bus stops, colleges, kindergartens, libraries, schools, research institutes, car-sharing points, clinics, doctors, dentists, pharmacies, veterinary services, social facilities, cinemas, community centres, social centres, theatres, market places, stop positions, platforms, stations, stop areas, and stop area groups. This data can be scraped from OpenStreetMap using the Python package OSMnx by running the notebook "scrapeOpportunitiesOSM.ipynp".
 
 ## Execution
-1. Install the packages below with the specific versions:
+1. Start Docker Desktop (once it's running, you should see a green light or a related message).
+
+2. Run the following command from the "command prompt" (make sure you are inside the "osm" folder): For Linux users:
+docker run -t -i -p 5000:5000 -v "${PWD}:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
+For Windows users:
+docker run -t -i -p 5000:5000 -v "%cd%:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
+
+3. Open the notebook "Accessibility_Analysis.ipynb" in you coding environment (e.g. VS code, Jupyter Notebook, ...). Install the packages below with the specific versions:
 
 		geojson == 3.1.0
 		pymongo == 4.7.2
@@ -41,14 +45,22 @@ To compute the "Accessibility" Score the distribution of public services in the 
 		shapely == 2.0.4
 		geopandas == 0.14.4
 
-2. Start Docker Desktop (once it's running, you should see a green light or a related message).
 
-3. Adjust the date indicated in the line `day = ...` so that it corresponds to a date that is contained in the GTFS file.
+4. Set the variable listed at the start of the notebook:
+	1. ```city = 'Budapest' # name of the city```
+	2. ```urlMongoDb = "mongodb://localhost:27017/"; # url of the mongodb database```
+	3. ```directoryGTFS = './gtfs/'+ city+ '/' # directory of the gtfs files.```
+	4. ```day = "20170607" #hhhhmmdd [date validity of gtfs files]```
+	5. ```dayName = "wednesday" #name of the corresponding day```
+	6. ```urlServerOsrm = 'http://localhost:5000/'; #url of the osrm server of the city```
+    \[\Optional -- population collection]
+    7. ```urlMongoDbPop = "mongodb://localhost:27017/"; # url of the mongodb database of population data```
+    8. ```popDbName = "" #name of the population database```
+    9. ```popCollectionName = ""#name of the population collection```
+    10. ```popField = ""#the field in the properties field in the elements containing the value of the population```
+    11. ```set the reference system of the population file is in `EPSG:4326`. If your population files are in another reference system, you should first convert them, using some external tools (e.g., qGIS)```
 
-4. Ensure that the reference system of the population file is in `EPSG:4326`. If your population files are in another reference system, you should first convert them, using some external tools (e.g., qGIS).
-
-5. Run the cells in the notebook `step_1_Estimation of travel time and wait time.ipynb` to make estimations at unsampled areas in the data and get new gtfs files with drt integrated.
-6. Run the cells in the notebook `step_2_Compute the accessibilities.ipynb` to compute and visualize the accessibilities.
+5. run  all the cells in the notebook 
 
     
 
