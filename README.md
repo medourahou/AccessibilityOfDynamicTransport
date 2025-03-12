@@ -5,7 +5,7 @@
 2. [jupyter Notebook](http://jupyter.org/) -  interacting with the CityChrone analysis notebooks.
 3. [MongoDB](https://www.mongodb.com/download-center#community) with the privileges to create and modified a database. CityChrone's backend relies on MongoDB for data storage and management. Ensure to dowload also MongoDB Compass - a GUI for MongoDB (to visually explore your data, build queries, and optimize databases).
 4. [Docker](https://docs.docker.com/get-started/get-docker/) - to run applications inside containers. Make sure your system supports and has enabled hardware virtualization (usually found in BIOS/UEFI settings). WSL 2 Backend (Recommended): Windows Subsystem for Linux 2 should be enabled for better performance.
-5. Install all the Python libraries listed below (see "Execution" section, Par. 1).
+5. Install all the Python libraries listed below (see "Execution" section, Par. 1). Make sure to install the suggested versions of each library (functions you need might be removed or changed in newer versions).
 
 ## Installation
 1. Clone this repository.
@@ -13,18 +13,20 @@
 
 You will see `running and waiting for requests` message, which means that OSRM server is ready
 
-3. Install Mongo DB `sudo apt-get install mongodb`
-4. Install `pip install IPython`
-#DATA
+3. Install Mongo DB --> `sudo apt-get install mongodb`
+4. Install IPython --> `pip install IPython`
 
-get osm from [geofabrik](https://download.geofabrik.de/)
+## OSM DATA
+OpenStreetMap (OSM) data provides detailed geographic information that CityChrone uses to compute accessibility.
+
+Get OSM data for specific regions from [geofabrik](https://download.geofabrik.de/).
+
+The .osm.pbf (Protocolbuffer Binary Format) is recommended as it is compact and efficient.
 
 ### Optional
 To compute the "Sociality Score," the distribution of public services in the city is needed. These public services include bus stops, colleges, kindergartens, libraries, schools, research institutes, car-sharing points, clinics, doctors, dentists, pharmacies, veterinary services, social facilities, cinemas, community centres, social centres, theatres, market places, stop positions, platforms, stations, stop areas, and stop area groups. This data can be scraped from OpenStreetMap using the Python package OSMnx.
 
 ## Execution
-
-
 1. Install the packages below with the specific versions:
 
 		geojson == 3.1.0
@@ -37,12 +39,14 @@ To compute the "Sociality Score," the distribution of public services in the cit
 		shapely == 2.0.4
 		geopandas == 0.14.4
 
-2. Adjust the date indicated in the line `day = ...` so that it corresponds to a date that is contained in the GTFS file.
+2. Start Docker Desktop (once it's running, you should see a green light or a related message).
 
-3. Ensure that the reference system of the population file is in `EPSG:4326`. If your population files are in another reference system, you should first convert them, using some external tools (e.g., qGIS).
+3. Adjust the date indicated in the line `day = ...` so that it corresponds to a date that is contained in the GTFS file.
 
-4. Run the cells in the notebook `step_1_Estimation of travel time and wait time.ipynb` to make estimations at unsampled areas in the data and get new gtfs files with drt integrated.
-5. Run the cells in the notebook `step_2_Compute the accessibilities.ipynb` to compute and visualize the accessibilities.
+4. Ensure that the reference system of the population file is in `EPSG:4326`. If your population files are in another reference system, you should first convert them, using some external tools (e.g., qGIS).
+
+5. Run the cells in the notebook `step_1_Estimation of travel time and wait time.ipynb` to make estimations at unsampled areas in the data and get new gtfs files with drt integrated.
+6. Run the cells in the notebook `step_2_Compute the accessibilities.ipynb` to compute and visualize the accessibilities.
 
     
 
