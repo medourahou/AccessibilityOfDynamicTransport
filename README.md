@@ -28,10 +28,17 @@ To compute the "Accessibility Score" the distribution of public services in the 
 ## Execution
 1. Start Docker Desktop (once it's running, you should see a green light or a related message).
 
-2. Run the following command from the "command prompt" (make sure you are inside the "osm" folder): For Linux users:
-docker run -t -i -p 5000:5000 -v "${PWD}:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
-For Windows users:
-docker run -t -i -p 5000:5000 -v "%cd%:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
+2. Run the following command from the "command prompt" (make sure you are inside the "osm" folder): 
+
+	For Linux users:
+
+		docker run -t -i -p 5000:5000 -v "${PWD}:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
+
+	For Windows users:
+
+		docker run -t -i -p 5000:5000 -v "%cd%:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
+
+This command starts the OSRM routing server and runs the routing engine, allowing you to make routing requests to the server (on port 5000).
 
 3. Open the notebook "Accessibility_Analysis.ipynb" in you coding environment (e.g. VS code, Jupyter Notebook, ...). Install the packages below with the specific versions:
 
