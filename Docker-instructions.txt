@@ -1,4 +1,5 @@
-# Go to folder "osm" 
+# Navigate to folder "osm" 
+
 # If you are in a unix system, run (as administrator):
 
 docker run -t -v "${PWD}:/data" osrm/osrm-backend osrm-extract -p /opt/foot.lua /data/Budapest.osm.pbf
@@ -7,10 +8,12 @@ docker run -t -v "${PWD}:/data" osrm/osrm-backend osrm-customize /data/Budapest.
 
 
 # If you are instead in Windows, run the normal "command prompt" AS ADMINISTRATOR
-# DO NOT USE Powershell
+# N.B. problems may arise using Powershell instead of normal command prompt
 
 docker run -t -v "%cd%:/data" osrm/osrm-backend osrm-extract -p /opt/foot.lua /data/Budapest.osm.pbf
 docker run -t -v "%cd%:/data" osrm/osrm-backend osrm-partition /data/Budapest.osrm
 docker run -t -v "%cd%:/data" osrm/osrm-backend osrm-customize /data/Budapest.osrm
 
 # *** replace "Budapest" with your city-name ***
+
+# Make sure that new files have been created inside the "osm" folder
