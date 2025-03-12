@@ -1,10 +1,9 @@
-# Go to folder "osrm"
+# Go to folder "osm" 
 # If you are in a unix system, run (as administrator):
 
 docker run -t -v "${PWD}:/data" osrm/osrm-backend osrm-extract -p /opt/foot.lua /data/Budapest.osm.pbf
 docker run -t -v "${PWD}:/data" osrm/osrm-backend osrm-partition /data/Budapest.osrm
 docker run -t -v "${PWD}:/data" osrm/osrm-backend osrm-customize /data/Budapest.osrm
-docker run -t -i -p 5000:5000 -v "${PWD}:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
 
 
 # If you are instead in Windows, run the normal "command prompt" AS ADMINISTRATOR
@@ -13,9 +12,5 @@ docker run -t -i -p 5000:5000 -v "${PWD}:/data" osrm/osrm-backend osrm-routed --
 docker run -t -v "%cd%:/data" osrm/osrm-backend osrm-extract -p /opt/foot.lua /data/Budapest.osm.pbf
 docker run -t -v "%cd%:/data" osrm/osrm-backend osrm-partition /data/Budapest.osrm
 docker run -t -v "%cd%:/data" osrm/osrm-backend osrm-customize /data/Budapest.osrm
-docker run -t -i -p 5000:5000 -v "%cd%:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
 
 # *** replace "Budapest" with your city-name ***
-# Command Explaination
-#1. osrm/osrm-backend osrm-extract -p /opt/foot.lua /data/Budapest.osm.pbf
-processes the raw OSM data and prepares it for routing. It extracts the relevant data from the .osm.pbf file using the specified profile (foot.lua for pedestrian routing).
