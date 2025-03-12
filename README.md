@@ -1,11 +1,12 @@
 #modification
 
 ## Prerequisites
-1. [python 3.x](https://www.python.org/download/releases/3.0/)
-1. [jupyter](http://jupyter.org/)
-1. [MongoDB](https://www.mongodb.com/download-center#community) with the privileges to create and modified a database.
-1. Docker
-1. All the python library needed, listed at the beginning of the notebook.
+1. [python 3.x](https://www.python.org/download/releases/3.0/) - core programming language for running CityChrone scripts.
+2. [jupyter Notebook](http://jupyter.org/) -  interacting with the CityChrone analysis notebooks.
+3. [MongoDB](https://www.mongodb.com/download-center#community) with the privileges to create and modified a database.
+   CityChrone's backend relies on MongoDB for data storage and management. Ensure to dowload also MongoDB Compass - a GUI for MongoDB (to visually explore your data, build queries, and optimize databases).
+5. Docker
+6. Install all the Python libraries listed in the requirements.txt file.
 
 
 ## Installation
