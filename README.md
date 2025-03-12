@@ -40,6 +40,12 @@ To compute the "Accessibility Score" the distribution of public services in the 
 
 This command starts the OSRM routing server and runs the routing engine, allowing you to make routing requests to the server (on port 5000).
 
+### Optional
+
+You don’t need to run the full docker run command every time if you’ve already created and started a container. Once you have a container running, you can simply start it again or continue using it from Docker Desktop.
+
+How to run the Container from Docker Desktop: 1. Open Docker Desktop. 2. Find the container you want to run from the tab (you should have a list of containers that have been run before). 3. Click on the container you want to start or restart (click the "Start" button to resume or start the container).
+
 3. Open the notebook "Accessibility_Analysis.ipynb" in you coding environment (e.g. VS code, Jupyter Notebook, ...). Install the packages below with the specific versions:
 
 		geojson == 3.1.0
