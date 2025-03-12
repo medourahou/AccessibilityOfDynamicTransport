@@ -23,8 +23,10 @@ Get OSM data for specific regions from [geofabrik](https://download.geofabrik.de
 
 The .osm.pbf (Protocolbuffer Binary Format) is recommended as it is compact and efficient.
 
+Make sure that you have the 
+
 ### Optional
-To compute the "Sociality Score," the distribution of public services in the city is needed. These public services include bus stops, colleges, kindergartens, libraries, schools, research institutes, car-sharing points, clinics, doctors, dentists, pharmacies, veterinary services, social facilities, cinemas, community centres, social centres, theatres, market places, stop positions, platforms, stations, stop areas, and stop area groups. This data can be scraped from OpenStreetMap using the Python package OSMnx.
+To compute the "Accessibility" Score the distribution of public services in the city is needed. These public services include bus stops, colleges, kindergartens, libraries, schools, research institutes, car-sharing points, clinics, doctors, dentists, pharmacies, veterinary services, social facilities, cinemas, community centres, social centres, theatres, market places, stop positions, platforms, stations, stop areas, and stop area groups. This data can be scraped from OpenStreetMap using the Python package OSMnx.
 
 ## Execution
 1. Install the packages below with the specific versions:
