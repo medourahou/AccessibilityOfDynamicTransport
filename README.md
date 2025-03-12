@@ -30,11 +30,11 @@ To compute the "Accessibility Score" the distribution of public services in the 
 
 2. Run the following command from the "command prompt" (make sure you are inside the "osm" folder): 
 
-	For Linux users:
+	For Linux users (or Windows, using PoweShell):
 
 		docker run -t -i -p 5000:5000 -v "${PWD}:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
 
-	For Windows users:
+	For Windows users (using cmd):
 
 		docker run -t -i -p 5000:5000 -v "%cd%:/data" osrm/osrm-backend osrm-routed --algorithm mld /data/Budapest.osrm
 
