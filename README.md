@@ -16,14 +16,24 @@ You will see `running and waiting for requests` message, which means that OSRM s
 3. Install Mongo DB --> `sudo apt-get install mongodb`
 4. Install IPython --> `pip install IPython`
 
-## OSM DATA
+## DATA
+
+### OSM
 OpenStreetMap (OSM) data provides detailed geographic information that CityChrone uses to compute accessibility.
 
-Get OSM data for specific regions from [geofabrik](https://download.geofabrik.de/).
+Get OSM data for specific regions from [geofabrik](https://download.geofabrik.de/). The .osm.pbf (Protocolbuffer Binary Format) is recommended.
 
-The .osm.pbf (Protocolbuffer Binary Format) is recommended as it is compact and efficient.
+The downloaded .osm.pbf file must be stored in the "osm" folder.
 
+### SHP
 To compute the "Accessibility Score" the distribution of public services in the city is needed. These public services include bus stops, colleges, kindergartens, libraries, schools, research institutes, car-sharing points, clinics, doctors, dentists, pharmacies, veterinary services, social facilities, cinemas, community centres, social centres, theatres, market places, stop positions, platforms, stations, stop areas, and stop area groups. This data can be scraped from OpenStreetMap using the Python package OSMnx by running the notebook "scrapeOpportunitiesOSM.ipynp".
+
+The shapefile of these opportunities must be stored the "shp" folder. It consists of a .geojson file and five files with the following extensions: .shp - .shx - .dbf - .prj - .cpg. The suffix must be the same (e.g. "poi").
+
+Make sure that the shapefile has at least an "id" field and a "pop" field.
+
+### GTFS
+Make sure that the "gtfs.zip" file is stored in the "gtfs" folder.
 
 ## Execution
 1. Start Docker Desktop (once it's running, you should see a green light or a related message).
