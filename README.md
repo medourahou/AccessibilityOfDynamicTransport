@@ -28,7 +28,7 @@ The downloaded .osm.pbf file must be stored in the "osm" folder.
 ### SHP
 To compute the "Accessibility Score" the distribution of public services in the city is needed. These public services include bus stops, colleges, kindergartens, libraries, schools, research institutes, car-sharing points, clinics, doctors, dentists, pharmacies, veterinary services, social facilities, cinemas, community centres, social centres, theatres, market places, stop positions, platforms, stations, stop areas, and stop area groups. This data can be scraped from OpenStreetMap using the Python package OSMnx by running the notebook "scrapeOpportunitiesOSM.ipynp".
 
-The shapefile of these opportunities must be stored the "shp" folder. It consists of a .geojson file and five files with the following extensions: .shp - .shx - .dbf - .prj - .cpg. The suffix must be the same (e.g. "poi").
+The shapefile of these opportunities must be stored the "shp" folder. It consists of five files with the following extensions: .shp - .shx - .dbf - .prj - .cpg. The suffix must be the same (e.g. "poi").
 
 Make sure that the shapefile has at least an "id" field and a "pop" field.
 
@@ -50,7 +50,7 @@ Make sure that the "gtfs.zip" file is stored in the "gtfs" folder.
 
 This command starts the OSRM routing server and runs the routing engine, allowing you to make routing requests to the server (on port 5000).
 
-### Optional
+   *** Optional ***
 
 You don’t need to run the full docker run command every time if you’ve already created and started a container. Once you have a container running, you can simply start it again or continue using it from Docker Desktop.
 
@@ -85,7 +85,7 @@ How to run the Container from Docker Desktop: 1. Open Docker Desktop. 2. Find th
 
 5. run  all the cells in the notebook 
 
-    
+  --- to do ---  add a plot function to visualize the color scale of the accessibility scores
 
 
 
